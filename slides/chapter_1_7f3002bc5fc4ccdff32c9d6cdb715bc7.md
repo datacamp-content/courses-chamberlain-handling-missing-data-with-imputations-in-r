@@ -24,16 +24,16 @@ title: Data scientist
 ## Inspecting incomplete data
 
 ```yaml
-type: "TwoColumns"
-key: "92849ed01d"
+type: "FullSlide"
+key: "861914663f"
 ```
 
 `@part1`
-```{r}
+```r
 library(mice)
 ```
 {{1}}
-```{r}
+```r
 head(nhanes)
   age  bmi hyp chl
 1   1   NA  NA  NA
@@ -42,37 +42,16 @@ head(nhanes)
 4   3   NA  NA  NA
 5   1 20.4   1 113
 6   3   NA  NA 184
-
+```{{2}}
+```r
+colMeans(nhanes,na.rm = TRUE)
+       age        bmi        hyp        chl 
+  1.760000  26.562500   1.235294 191.400000 
 ```
-{{2}}
-
-
-`@part2`
-```{r}
-summary(nhanes)
-```
-{{3}}
-```{r}
-     age           bmi          hyp           chl     
- Min.   :1.0   Min.   :20   Min.   :1.0   Min.   :113  
- 1st Qu.:1.0   1st Qu.:23   1st Qu.:1.0   1st Qu.:185  
- Median :2.0   Median :27   Median :1.0   Median :187  
- Mean   :1.8   Mean   :27   Mean   :1.2   Mean   :191  
- 3rd Qu.:2.0   3rd Qu.:29   3rd Qu.:1.0   3rd Qu.:212  
- Max.   :3.0   Max.   :35   Max.   :2.0   Max.   :284  
-               NA's   :9    NA's   :8     NA's   :10   
-
-```
-
-{{4}}
-
-
-`@citations`
-(Schafer, 1997, Table 6.14)
 
 
 `@script`
-The mice package contains several datasets. Once the package is loaded, these datasets are available for use. Lets load mice. After the load the mice package, nhanes data set is then available for us.By typing head(nhanes) we observe the first 6 rows of the nhanes dataset. The nhanes dataset is a small data set with some missing values represented here with NAs. It contains 25 observations on four variables: age group, body mass index, hypertension and cholesterol.
+
 
 
 ---
@@ -111,8 +90,30 @@ If you use the md.pattern() function in mice you will get the following missing 
 The missingness pattern shows that there are 27 missing values in total: 10 for cholesterol , 9 for bmi and 8 for hyp and no missing values for age. Moreover, there are 13 completely observed rows, four rows with 1 missing, one row with 2 missings and seven rows with 3 missings. Looking at the missing data pattern is always useful (but may be difficult for datasets with many variables). It can give you an indication on how much information is missing and how the missingness is distributed.
 
 
+The heatmap also conveys the same information about about the missing values
+
+
 ---
-## Inspecting incomplete data
+## Ad Hoc imputation methods
+
+```yaml
+type: "FullSlide"
+key: "fd98bd8f30"
+```
+
+`@part1`
+```r
+imp <- mice(nhanes, method = "mean", m = 1, maxit = 1)
+```
+{{1}}
+
+
+`@script`
+Lets try out some basic and rather ad hoc imputations methods using mice on the nhanes dataset we saw in the previous slide.
+
+
+---
+## Let's try out some exercises
 
 ```yaml
 type: "FinalSlide"
@@ -120,5 +121,5 @@ key: "5e76b31415"
 ```
 
 `@script`
-
+Time to put all you have learned into practice
 
