@@ -13,7 +13,7 @@ key: "433cb61289"
 `@lower_third`
 
 name: Chamberlain Mbah
-title: Data scientist
+title: Data scientist at Tobania
 
 
 `@script`
@@ -46,7 +46,7 @@ head(nhanes)
 
 
 `@citations`
-(Schafer, 1997, Table 6.14)
+Schafer, J.L. (1997). Analysis of Incomplete Multivariate Data. London: Chapman & Hall. Table 6.14.
 
 
 `@script`
