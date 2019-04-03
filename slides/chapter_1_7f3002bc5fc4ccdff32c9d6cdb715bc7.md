@@ -129,6 +129,7 @@ The heatmap also conveys the same information about about the missing values
 ```yaml
 type: "FullSlide"
 key: "baf8c5f40e"
+disable_transition: false
 ```
 
 `@part1`
