@@ -43,6 +43,21 @@ head(nhanes)
 5   1 20.4   1 113
 6   3   NA  NA 184
 ```{{2}}
+
+
+`@script`
+
+
+
+---
+## Inspecting incomplete data
+
+```yaml
+type: "FullSlide"
+key: "2eeae75700"
+```
+
+`@part1`
 ```r
 colMeans(nhanes,na.rm = TRUE)
        age        bmi        hyp        chl 
@@ -94,11 +109,11 @@ The heatmap also conveys the same information about about the missing values
 
 
 ---
-## Ad Hoc imputation methods
+## Insert title here...
 
 ```yaml
-type: "FullSlide"
-key: "fd98bd8f30"
+type: "TwoColumns"
+key: "0e3d58defd"
 ```
 
 `@part1`
@@ -107,9 +122,36 @@ imp <- mice(nhanes, method = "mean", m = 1, maxit = 1)
 ```
 {{1}}
 
+```r
+colMeans(nhanes,na.rm = TRUE)
+       age        bmi        hyp        chl 
+  1.760000  26.562500   1.235294 191.400000 
+```
+{{2}}
+
+
+`@part2`
+```r
+head(complete(imp),n=3)
+  age     bmi      hyp   chl
+1   1 26.5625 1.235294 191.4
+2   2 22.7000 1.000000 187.0
+3   1 26.5625 1.000000 187.0
+```
+{{3}}
+
+```r
+head(nhanes,n=3)
+  age  bmi hyp chl
+1   1   NA  NA  NA
+2   2 22.7   1 187
+3   1   NA   1 187
+```
+{{4}}
+
 
 `@script`
-Lets try out some basic and rather ad hoc imputations methods using mice on the nhanes dataset we saw in the previous slide.
+
 
 
 ---
