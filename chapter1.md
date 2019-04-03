@@ -1,43 +1,16 @@
 ---
-title: 'Chapter Title Here'
+title: 'Handling missing data with imputation in R'
 description: 'Chapter description goes here.'
 free_preview: true
 ---
 
-## Example coding exercise
+## Introduction to the mice package
 
 ```yaml
-type: NormalExercise
-key: 2bafef99a3
-lang: r
-xp: 100
-skills: 1
+type: VideoExercise
+key: b2b04e2313
+xp: 50
 ```
 
-This is an example exercise.
-
-`@instructions`
-
-
-`@hint`
-
-
-`@pre_exercise_code`
-```{r}
-
-```
-
-`@sample_code`
-```{r}
-
-```
-
-`@solution`
-```{r}
-
-```
-
-`@sct`
-```{r}
-
-```
+`@projector_key`
+7f3002bc5fc4ccdff32c9d6cdb715bc7
