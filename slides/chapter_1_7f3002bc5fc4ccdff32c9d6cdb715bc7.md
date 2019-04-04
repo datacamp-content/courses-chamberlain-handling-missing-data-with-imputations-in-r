@@ -17,7 +17,9 @@ title: Data scientist at Tobania
 
 
 `@script`
-Welcome to this course, my name is Chamberlain Mbah, I am a data scientist. Lets get start.
+Welcome to this course
+
+We will see how to impute missing data in R
 
 
 ---
