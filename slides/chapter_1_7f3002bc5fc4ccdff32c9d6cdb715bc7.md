@@ -17,7 +17,7 @@ title: Data scientist at Tobania
 
 
 `@script`
-Welcome to the course, my name is Chamberlain Mbah, I am a data scientist. Lets get start.
+Welcome to this course, my name is Chamberlain Mbah, I am a data scientist. Lets get start.
 
 
 ---
@@ -55,11 +55,11 @@ This course is all about missing values and how to work with them.
 First lets look at a typical dataset with missing values. 
 
 The mice package which will be our main tool in this course contains several datasets.  
-{{1}} First lets load mice 
+{{1}} First lets load the  mice  package
 
 Now that we have loaded mice,  all the datasets within mice are available to us.
 
-{{2}} Lets have a look at the nhanes dataset  introduced Schafer's, 1997 paper in Table 6.14.
+{{2}} Lets have a look at the nhanes dataset  introduced in Schafer's, 1997 book on Table 6.14.
 
 The nhanes dataset is a small dataset with missing values.
 
@@ -104,7 +104,7 @@ md.pattern(nhanes)
 
 
 `@script`
-{{1}} If you use the md.pattern() function in mice you will get the following missing pattern. {{2}}
+{{1}} If you use the md.pattern() function from the  mice package  you will get the following missing pattern. {{2}}
 
 What do we see here? 
 
@@ -117,10 +117,14 @@ The missingness pattern shows that there are 27 missing values in total:
 
 10 of them cholesterol , 9 for bmi and 8 for hyp and no missing values for age.
 
-Moreover, there are 13 completely observed rows, four rows with 1 missing, one row with 2 missings and seven rows with 3 missings. Looking at the missing data pattern is always useful (but may be difficult for datasets with many variables). It can give you an indication on how much information is missing and how the missingness is distributed.
+Moreover, there are 13 completely observed rows, four rows with 1 missing value, one row with 2 missings and seven rows with 3 missings. 
+
+Looking at the missing data pattern is always useful (but may be difficult for datasets with many variables). It can give you an indication on how much information is missing and how the missingness is distributed.
 
 
-The heatmap also conveys the same information about about the missing values
+{{3}}The heatmap also conveys the same information about about the missing values.
+
+In the next slide we will quickly impute the missing values in nhanes.
 
 
 ---
@@ -135,11 +139,19 @@ disable_transition: false
 `@part1`
 ```r
 imp <- mice(nhanes, method = "mean", m = 1, maxit = 1)
-```
+```{{1}}
 
 
 `@script`
+The method we use hear is ad hoc, meaning it is quick and intuitive.
 
+The goal here is to show you a straight forward imputation approach with mice. {{1}}
+
+The main function in mice is the mice function which takes in the dataset, the imputation method, in this case the mean, and two other parameters, m and maxit which we will ignore for now. 
+
+For each variable and for each missing value, mice will replace the missing value with the variable mean. And store all that information in the imp object
+
+Next slide
 
 
 ---
@@ -155,14 +167,14 @@ key: "3bb43f0ca3"
 colMeans(nhanes,na.rm = TRUE)
        age        bmi        hyp        chl 
   1.760000  26.562500   1.235294 191.400000 
-```{{1}}
+```
 
 ```r
-head(complete(imp),n=1)
+imp%>%complete()%>%head(n=1)
   age     bmi      hyp   chl
 1   1 26.5625 1.235294 191.4
 ```
-{{2}}
+{{1}}
 
 ```r
 head(nhanes,n=1)
@@ -170,11 +182,17 @@ head(nhanes,n=1)
 1   1   NA  NA  NA
 2   2 22.7   1 187
 ```
-{{3}}
+{{2}}
 
 
 `@script`
+Let me show you the means of each variable in the dataset, computed with the columnMean function in R. 
 
+{{1}} Now we apply the complete function from mice on the imp object from the last slide and only look at the first row. 
+
+{{2}} Compare it to the the first row of the original dataset and observe that all missing values for each variable have been replaced with the variable means. 
+
+Let try out some exercises.
 
 
 ---
