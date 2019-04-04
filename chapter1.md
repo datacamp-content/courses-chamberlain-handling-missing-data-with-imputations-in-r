@@ -4,7 +4,7 @@ description: 'Chapter description goes here.'
 free_preview: true
 ---
 
-## Introduction to the mice package
+## Introduction to missing data with mice
 
 ```yaml
 type: VideoExercise

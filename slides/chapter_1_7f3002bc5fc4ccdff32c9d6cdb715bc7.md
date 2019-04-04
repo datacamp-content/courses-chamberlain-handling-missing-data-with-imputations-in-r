@@ -3,7 +3,7 @@ title: Insert title here
 key: 7f3002bc5fc4ccdff32c9d6cdb715bc7
 
 ---
-## Introduction to the mice package
+## Introduction to missing data with mice
 
 ```yaml
 type: "TitleSlide"
@@ -17,13 +17,11 @@ title: Data scientist at Tobania
 
 
 `@script`
-Welcome to this course
-
-We will see how to impute missing data in R
+Welcome to this chapter on inspecting incomplete data
 
 
 ---
-## Inspecting incomplete data
+## The nhanes dataset
 
 ```yaml
 type: "FullSlide"
